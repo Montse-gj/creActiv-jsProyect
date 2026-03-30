@@ -5,7 +5,7 @@ class APIManager {
 
   static async getData(subject = "manualidades") {
     try {
-      const query = `search?query=${subject}&per_page=5`;
+      const query = `search?query=${subject}&per_page=10`;
       const result = await fetch(APIManager.API_URL + query, {
         method: "get",
         headers: {

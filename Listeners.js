@@ -1,5 +1,6 @@
+import StorageManager from "./StorageManager.js";
 class Listeners {
-    constructor(workshopCollection, domManager){
+    constructor(workshopCollection, domManager) {
         this.workshop = workshopCollection; // instancia correcta
         this.dom = domManager;
     }
@@ -12,7 +13,9 @@ class Listeners {
 
                 const workshop = this.workshop.collection.get(id);
 
-                if(workshop.isFavorite){
+                StorageManager.toggleFavorite(id);
+                
+                if (workshop.isFavorite) {
                     favButton.classList.add("fav-on");
                 } else {
                     favButton.classList.remove("fav-on");

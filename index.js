@@ -15,7 +15,6 @@ async function main() {
   workshopGeneric.getElements().forEach(workshop => {
     const html = domManager.WorkshopCreateHtml(workshop);
     container.appendChild(html);
-  });
-}
+import DOMManager from "./DOMManager.js";
 
 main();

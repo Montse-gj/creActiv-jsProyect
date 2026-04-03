@@ -60,22 +60,3 @@ export class WorkshopCollection extends WorkshopGeneric {
     return Array.from(this.collection.values()).filter(workshop => workshop.isFavorite);
   }
 }
-
-function WorkshopCreate(workshopData) {
-
-  const collection = new WorkshopGeneric()
-  workshopData.forEach(workshopGross=> {
-    const workshop = new Workshop(workshopGross.id,
-      workshopGross.photographer,
-      workshopGross.photographer_url,
-      workshopGross.photographer_id,
-      workshopGross.alt,
-      workshopGross.height,
-      workshopGross.width,
-      workshopGross.url,
-      workshopGross.avg_color,
-      workshopGross.src)
-    collection.add(workshop);
-  });
-  return collection;
-}

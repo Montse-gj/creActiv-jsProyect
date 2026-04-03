@@ -1,7 +1,26 @@
 import APIManager from "./APIManager.js";
-import DOMManager from ".DOMManager.js";
+import DOMManager from "./DOMManager.js";
 import Workshop from "./Workshop.js";
 import { WorkshopGeneric, WorkshopCollection } from "./Workshop.js";
+
+async function workshopCreate(workshopData) {
+
+  const collection = new WorkshopGeneric()
+  workshopData.forEach(workshopGross => {
+    const workshop = new Workshop(workshopGross.id,
+      workshopGross.photographer,
+      workshopGross.photographer_url,
+      workshopGross.photographer_id,
+      workshopGross.alt,
+      workshopGross.height,
+      workshopGross.width,
+      workshopGross.url,
+      workshopGross.avg_color,
+      workshopGross.src)
+    collection.add(workshop);
+  });
+  return collection;
+}
 
 async function main() {
   const workshopGross = await APIManager.getData();
@@ -15,6 +34,8 @@ async function main() {
   workshopGeneric.getElements().forEach(workshop => {
     const html = domManager.WorkshopCreateHtml(workshop);
     container.appendChild(html);
-import DOMManager from "./DOMManager.js";
+  });
+
+};
 
 main();

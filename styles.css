@@ -16,13 +16,21 @@ body {
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
-  font-variation-settings: "wdth" 100, "YTLC" 500;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Galada", cursive;
   font-weight: 400;
   font-style: normal;
+
 }
 
 section {
@@ -132,6 +140,11 @@ ol {
   height: auto;
 }
 
+button .favic button:hover {
+  cursor: pointer;
+  background-color: #85B1AF;
+}
+
 .product-card {
   border: 0.1em solid #ddd;
   border-radius: 10px 10px 0 0;
@@ -153,6 +166,7 @@ ol {
 
 .product-short-desc h4 {
   font-size: 1.1rem;
+  min-height: 5.5rem;
 }
 
 .product-short-desc button {
@@ -172,16 +186,19 @@ ol {
   background-color: #85B1AF;
 }
 
-.product-price-data {
+.product-priceData {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding: 10px 0;
+  text-align: center;
 }
 
-.product-price-data :first-child {
-  border-right: 1px solid black;
-  padding-right: 2em;
+.product-priceData button:hover {
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  background-color: #85B1AF;
 }
+
 
 /*  Page workshop  */
 #main {
@@ -296,8 +313,6 @@ aside h1 {
   width: 45%;
 }
 
-.form-basic-dat {}
-
 select {
   width: max-content;
   padding: 0.7em;
@@ -318,17 +333,6 @@ fieldset,
 textarea {
   padding: 1em;
   width: fit-content;
-}
-
-button {
-  border: 1px solid #eee;
-  border-radius: 20px;
-  background-color: var(--color-primary);
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-right: 10px;
-  padding: 20px 40px;
 }
 
 .card {
@@ -410,11 +414,36 @@ button {
     width: 80%;
     margin: 2em;
   }
-}
 
-.form-display-radio {
-  display: block;
-  width: 100%;
+  .form-display-radio {
+    display: block;
+    width: 100%;
+  }
+
+  .fav-button {
+    background-color: transparent;
+    border: none;
+    font-weight: 900;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.8);
+    margin-left: 9.5em;
+    margin-top: 0.5em;
+    font-size: 2em;
+    cursor: pointer;
+  }
+
+  .fav-on {
+    color: rgba(251, 195, 26, 0.8);
+  }
+
+
+
+  .fav-button:hover {
+    transition: background-color 0.5s ease;
+    color: #85B1AF;
+  }
+
+
 }
 
 @media (min-width: 768px) {
@@ -469,11 +498,34 @@ button {
     padding: 5px 10px;
     margin-bottom: 1em;
   }
+
   .form-basic-dat-tag {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
-  
+
+  }
+
+  .fav-button {
+    background-color: transparent;
+    border: none;
+    font-weight: 900;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.8);
+    margin-left: 7.5em;
+    margin-top: 0.5em;
+    font-size: 2em;
+    cursor: pointer;
+  }
+
+  .fav-on {
+    color: rgba(251, 195, 26, 0.8);
+  }
+
+
+  .fav-button:hover {
+    transition: background-color 0.5s ease;
+    color: #85B1AF;
   }
 }
 
@@ -483,5 +535,26 @@ button {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 40px;
+  }
+
+  .fav-button {
+    background-color: transparent;
+    border: none;
+    font-weight: 900;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.8);
+    margin-left: 8.5em;
+    margin-top: 0.5em;
+    font-size: 2em;
+    cursor: pointer;
+  }
+
+  .fav-on {
+    color: rgba(251, 195, 26, 0.8);
+  }
+
+  .fav-button:hover {
+    transition: background-color 0.5s ease;
+    color: #85B1AF;
   }
 }

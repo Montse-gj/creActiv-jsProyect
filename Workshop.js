@@ -44,19 +44,22 @@ export class WorkshopGeneric {
   }
 }
 export class WorkshopCollection extends WorkshopGeneric {
-  addToFavorites(id) {
+  addToFavorite(id) {
     const workshop = this.collection.get(id);
     workshop.setFavorite(true);
   }
-  removeToFavorites(id) {
+
+  removeFromFavorite(id) {
     const workshop = this.collection.get(id);
     workshop.setFavorite(false);
   }
-  toggleFavorites(id) {
+
+  toggleFavorite(id) {
     const workshop = this.collection.get(id);
     workshop.toggleFavorite();
   }
-  getFavorites() {
+
+  getFavorite() {
     return Array.from(this.collection.values()).filter(workshop => workshop.isFavorite);
   }
 }

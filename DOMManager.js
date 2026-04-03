@@ -13,20 +13,10 @@ class DOMManager {
         const productImg = document.createElement("div");
         productImg.classList.add("product-img");
         const favButton = document.createElement("button");
-        favButton.classList.add("fav-button");
+        favButton.classList.add("fav-button", `fav-${workshop.id}`);
+        favButton.dataset.workshopId = workshop.id;
         const favIcon = document.createElement("i");
-        favIcon.classList.add("fas", "fa-heart", "favic", `fav-${workshop.id}`);
-        favIcon.dataset.workshopId = workshop.id;
-        // favButton.addEventListener("click", () => {
-            // workshop.toggleFavorite();
-            
-            // if (workshop.isFavorite) {
-            //     favButton.classList.add("fav-on");
-            // } else {
-            //     favButton.classList.remove("fav-on");
-            // }
-        // })
-
+        favIcon.classList.add("fas", "fa-heart", "favic");
 
         const img = document.createElement("img");
         img.setAttribute("alt", `${workshop.alt}`);

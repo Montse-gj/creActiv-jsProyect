@@ -2,6 +2,7 @@ import APIManager from "./APIManager.js";
 import DOMManager from "./DOMManager.js";
 import Workshop from "./Workshop.js";
 import { WorkshopGeneric, WorkshopCollection } from "./Workshop.js";
+import Listeners from "./Listeners.js";
 
 async function workshopCreate(workshopData) {
 
@@ -32,10 +33,14 @@ async function main() {
 
   const workshopCollection = new WorkshopCollection();
   workshopGeneric.getElements().forEach(workshop => {
+    workshopCollection.add(workshop); 
     const html = domManager.WorkshopCreateHtml(workshop);
     container.appendChild(html);
   });
 
+  const listeners = new Listeners(workshopCollection, domManager);
+  listeners.favoritesGroup();
+  return workshopCollection;
 };
 
 main();

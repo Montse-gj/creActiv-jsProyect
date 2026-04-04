@@ -30,13 +30,13 @@ class DOMManager {
         const teacher = document.createElement("p");
         teacher.textContent = `Profesor: ${workshop.photographer}`;
         const center = document.createElement("p");
-        center.textContent = `centro: ???? `;
+        center.textContent = `centro:${workshop.center}`;
         const productPrice = document.createElement("div");
         productPrice.classList.add("product-priceData");
         const price = document.createElement("div");
-        price.textContent = "???€";
+        price.textContent = `${workshop.price}`;
         const month = document.createElement("div");
-        month.textContent = "???mes";
+        month.textContent = `${workshop.month}`;
         const btBook = document.createElement("button");
         btBook.textContent = "Reservar";
 

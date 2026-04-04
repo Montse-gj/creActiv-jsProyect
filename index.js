@@ -4,11 +4,17 @@ import Workshop from "./Workshop.js";
 import { WorkshopGeneric, WorkshopCollection } from "./Workshop.js";
 import Listeners from "./Listeners.js";
 import StorageManager from "./StorageManager.js";
-async function workshopCreate(workshopData) {
+import matchExtended from "./matchExtended.js";
 
-  const collection = new WorkshopGeneric()
+async function workshopCreate(workshopData) {
+  const collection = new WorkshopGeneric();
+  
+  const enrichedData =  matchExtended(workshopData);
+  
   workshopData.forEach(workshopGross => {
-    const workshop = new Workshop(workshopGross.id,
+    
+    const workshop = new Workshop(
+      workshopGross.id,
       workshopGross.photographer,
       workshopGross.photographer_url,
       workshopGross.photographer_id,
@@ -17,7 +23,16 @@ async function workshopCreate(workshopData) {
       workshopGross.width,
       workshopGross.url,
       workshopGross.avg_color,
-      workshopGross.src)
+      workshopGross.src,
+      workshopGross.activity,
+      workshopGross.descShort,
+      workshopGross.descLarge,
+      workshopGross.randomFact,
+      workshopGross.center,
+      workshopGross.city,
+      workshopGross.month,
+      workshopGross.price)
+
     collection.add(workshop);
   });
   return collection;

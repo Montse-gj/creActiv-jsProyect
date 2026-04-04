@@ -1,5 +1,5 @@
 export default class Workshop {
-  constructor(id, photographer, photographer_url, photographer_id, alt, height, width, url, avg_color, src) {
+  constructor(id, photographer, photographer_url, photographer_id, alt, height, width, url, avg_color, src, activity, descShort, descLarge, randomFact, center, city, month,price) {
     this.id = id;
     this.photographer = photographer;
     this.photographer_url = photographer_url;
@@ -7,6 +7,16 @@ export default class Workshop {
     this.alt = alt;
     this.url = url;
     this.srcMedium = src.medium;
+    
+    this.activity = activity;
+    this.descShort = descShort;
+    this.descLarge = descLarge;
+    this.randomFact = randomFact;
+    this.center = center;
+    this.city = city;
+    this.month = month;
+    this.price = price;
+
     this.isFavorite = false;
   }
   setFavorite(value) {

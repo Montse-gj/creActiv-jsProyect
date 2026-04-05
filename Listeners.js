@@ -1,7 +1,8 @@
 import StorageManager from "./StorageManager.js";
+
 class Listeners {
     constructor(workshopCollection, domManager) {
-        this.workshop = workshopCollection; // instancia correcta
+        this.workshop = workshopCollection;
         this.dom = domManager;
     }
 
@@ -14,7 +15,7 @@ class Listeners {
                 const workshop = this.workshop.collection.get(id);
 
                 StorageManager.toggleFavorite(id);
-                
+
                 if (workshop.isFavorite) {
                     favButton.classList.add("fav-on");
                 } else {
@@ -22,6 +23,20 @@ class Listeners {
                 }
             });
         });
+    }
+
+    worksopDescription() {
+        document.querySelectorAll(".book-bt").forEach(bookDesc => {
+            bookDesc.addEventListener("click", (event) => {
+                const id = parseInt(event.currentTarget.dataset.workshopId);
+
+                const workshopSelected = this.workshop.collection.get(id);
+
+                StorageManager.saveToStorage("selectedWorkshop", workshopSelected);
+                window.open('../taller.html', '_blank');
+
+            })
+        })
     }
 }
 export default Listeners;

@@ -8,7 +8,7 @@ class APIManager {
       const url = new URL(APIManager.API_URL);
       url.searchParams.append("query", query);
       url.searchParams.append("orientation", "landscape");
-      url.searchParams.append("size", "small");
+      url.searchParams.append("size", "medium");
       url.searchParams.append("locale", "es-ES");
       url.searchParams.append("per_page", "10");
 

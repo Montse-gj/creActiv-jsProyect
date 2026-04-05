@@ -1,5 +1,5 @@
 export default class Workshop {
-  constructor(id, photographer, photographer_url, photographer_id, alt, height, width, url, avg_color, src, activity, descShort, descLarge, randomFact, center, city, month,price) {
+  constructor(id, photographer, photographer_url, photographer_id, alt, height, width, url, avg_color, src, activity, descShort, descLarge, randomFact, places, center, city, month,price) {
     this.id = id;
     this.photographer = photographer;
     this.photographer_url = photographer_url;
@@ -12,6 +12,7 @@ export default class Workshop {
     this.descShort = descShort;
     this.descLarge = descLarge;
     this.randomFact = randomFact;
+    this.places = places;
     this.center = center;
     this.city = city;
     this.month = month;
@@ -32,7 +33,16 @@ export default class Workshop {
           fotografo id: ${this.photographer_id}, 
           descripción foto: ${this.alt}, 
           direccion foto: ${this.url}, 
-          tamaño foto medio : ${this.srcMedium}`;
+          tamaño foto medio : ${this.srcMedium},
+          actividad: ${this.activity},
+          descripcion corta: ${this.descShort},
+          descripcion larga: ${this.descLarge},
+          dato random: ${this.randomFact},
+          plazas; ${this.places},
+          centro: ${this.center},
+          ciudad: ${this.city},
+          mes: ${this.month}
+          precio: ${this.price}`;
   }
 }
 
@@ -52,6 +62,7 @@ export class WorkshopGeneric {
   getElements() {
     return Array.from(this.collection.values());
   }
+
 }
 export class WorkshopCollection extends WorkshopGeneric {
   addToFavorite(id) {
@@ -67,6 +78,7 @@ export class WorkshopCollection extends WorkshopGeneric {
   toggleFavorite(id) {
     const workshop = this.collection.get(id);
     workshop.toggleFavorite();
+
   }
 
   getFavorite() {

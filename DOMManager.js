@@ -51,7 +51,7 @@ class DOMManager {
         return article;
     }
 
-    WorkshopCreateDescSection(workshop) {
+    WorkshopCreateDescSection(workshop, galleryImages) {
         //contenedor main
         const section = document.createElement("section");
         section.classList.add("workshop-info");
@@ -59,10 +59,10 @@ class DOMManager {
 
         const gallery = document.createElement("div");
         gallery.classList.add("workshop-gallery");
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < galleryImages.length; i++) {
             const galeryImg = document.createElement("img");
             galeryImg.setAttribute("alt", `${workshop.alt}`);
-            galeryImg.setAttribute("src", `${workshop.srcMedium}`);
+            galeryImg.setAttribute("src", `${galleryImages[i]}`);
             gallery.appendChild(galeryImg);
         }
         //-----2------------------------

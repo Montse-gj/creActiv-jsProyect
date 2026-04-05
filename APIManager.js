@@ -31,6 +31,35 @@ class APIManager {
     }
   }
 
+    static async getWorkshopGalleryImages(acti) {
+    try {
+      const url = new URL(APIManager.API_URL);
+      url.searchParams.append("query", acti);
+      url.searchParams.append("size", "large");
+      url.searchParams.append("per_page", "4");
+
+      const apiResponse = await fetch(url.toString(), {
+        method: "get",
+        headers: {
+          Authorization: API_KEY
+        }
+      });
+      console.log(apiResponse);
+      if (!apiResponse.ok) {
+        console.log("Ha habido un error", apiResponse.status);
+        return [];
+      }
+      const data = await apiResponse.json();
+
+      const gallery = data.photos.map(photo => photo.src.large);
+      return gallery
+
+    } catch (error) {
+      console.error(error);
+    }
+
+  }
+
 }
 
 export default APIManager;

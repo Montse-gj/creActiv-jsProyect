@@ -391,7 +391,7 @@ export const workshopExtended = [
   },
   {
     idExtended: 31,
-    city: "Málaga",
+    city: "Caceres",
     activity: "Joyas de Cerámica Esmaltada",
     act: "ceramica",
     month: "Mayo",
@@ -404,7 +404,7 @@ export const workshopExtended = [
   },
   {
     idExtended: 32,
-    city: "Málaga",
+    city: "Soria",
     activity: "Bikini de Crochet",
     act: "crochet",
     month: "Junio",
@@ -417,7 +417,7 @@ export const workshopExtended = [
   },
   {
     idExtended: 33,
-    city: "Málaga",
+    city: "Burgos",
     activity: "Vajilla con Estampación de Hojas",
     act: "ceramica",
     month: "Septiembre",
@@ -430,7 +430,7 @@ export const workshopExtended = [
   },
   {
     idExtended: 34,
-    city: "Málaga",
+    city: "Burgos",
     activity: "Atrapasueños de Ganchillo",
     act: "crochet",
     month: "Agosto",
@@ -443,7 +443,7 @@ export const workshopExtended = [
   },
   {
     idExtended: 35,
-    city: "Málaga",
+    city: "Bilbao",
     activity: "Kokedamas de Barro",
     act: "manualidades",
     month: "Octubre",

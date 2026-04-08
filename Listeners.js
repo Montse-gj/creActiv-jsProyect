@@ -1,20 +1,27 @@
 import StorageManager from "./StorageManager.js";
+import { workshopExtended } from "./workshopExtended.js";
+import APIManager from "./APIManager.js";
+
 
 class Listeners {
-    constructor(workshopCollection, domManager) {
+    constructor(workshopCollection, domManager, container) {
         this.workshop = workshopCollection;
         this.dom = domManager;
+        this.container = container;
     }
 
     favoritesGroup() {
         document.querySelectorAll(".fav-button").forEach(favButton => {
             favButton.addEventListener("click", (event) => {
+
                 const id = parseInt(event.currentTarget.dataset.workshopId);
-                this.workshop.toggleFavorite(id);
 
                 const workshop = this.workshop.collection.get(id);
+                const idExtended = workshop.idExtended;
 
-                StorageManager.toggleFavorite(id);
+                this.workshop.toggleFavorite(id, idExtended);
+
+                StorageManager.toggleFavorite(id, idExtended);
 
                 if (workshop.isFavorite) {
                     favButton.classList.add("fav-on");
@@ -30,13 +37,75 @@ class Listeners {
             bookDesc.addEventListener("click", (event) => {
                 const id = parseInt(event.currentTarget.dataset.workshopId);
 
-                const workshopSelected = this.workshop.collection.get(id);
+                let workshopSelected = this.workshop.collection.get(id);
 
+                if (!workshopSelected) {
+                    // Buscamos en nuestro array extendido el objeto que ahora tiene ese ID de foto
+                    workshopSelected = workshopExtended.find(w => w.id === id);
+                }
+                if (workshopSelected){
                 StorageManager.saveToStorage("selectedWorkshop", workshopSelected);
                 window.open('../taller.html', '_blank');
+            }
+            });
+        });
+    }
 
-            })
-        })
+    async searchByCity() {
+        const formSearch = document.getElementById("searchForm");
+
+        formSearch.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const searchData = new FormData(formSearch);
+            const cityData = searchData.get('city').toLowerCase();
+
+            const workshopExtendedArray = workshopExtended;
+
+
+            const result = workshopExtendedArray.filter((workshop) =>
+                workshop.city.trim().toLowerCase() === cityData.trim().toLowerCase()
+            );
+
+            this.container.innerHTML = '';
+
+            if (result.length === 0) {
+                const message = document.createElement("p");
+                message.classList.add("no-results-message");
+                message.textContent = `No hay talleres disponibles en "${cityData}"`;
+                this.container.appendChild(message);
+            } else {
+                const query = `manualidades-${cityData}`;
+                const response = await APIManager.getData(query);
+                const newPhotos = response.photos;
+
+                result.forEach((workshop, index) => {
+                    const photoData = newPhotos[index % newPhotos.length];
+
+                    if (photoData) {
+                        // IMPORTANTE: Cambiamos el ID del taller por el de la foto
+                        workshop.id = photoData.id;
+
+                        workshop.srcMedium = photoData.src.medium;
+                        workshop.alt = photoData.alt;
+                        workshop.photographer = photoData.photographer;
+                    }
+
+                    const html = this.dom.WorkshopCreateHtml(workshop);
+
+                    // Forzamos que el dataset del botón sea el nuevo ID de la foto
+                    const btBook = html.querySelector(".book-bt");
+                    if (btBook) {
+                        btBook.dataset.workshopId = workshop.id; // Ahora es el ID de la foto
+                    }
+
+                    this.container.appendChild(html);
+                });
+
+                this.favoritesGroup();
+                this.worksopDescription();
+            }
+        });
     }
 }
 export default Listeners;

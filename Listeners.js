@@ -40,7 +40,6 @@ class Listeners {
                 let workshopSelected = this.workshop.collection.get(id);
 
                 if (!workshopSelected) {
-                    // Buscamos en nuestro array extendido el objeto que ahora tiene ese ID de foto
                     workshopSelected = workshopExtended.find(w => w.id === id);
                 }
                 if (workshopSelected){
@@ -83,9 +82,7 @@ class Listeners {
                     const photoData = newPhotos[index % newPhotos.length];
 
                     if (photoData) {
-                        // IMPORTANTE: Cambiamos el ID del taller por el de la foto
                         workshop.id = photoData.id;
-
                         workshop.srcMedium = photoData.src.medium;
                         workshop.alt = photoData.alt;
                         workshop.photographer = photoData.photographer;
@@ -93,10 +90,9 @@ class Listeners {
 
                     const html = this.dom.WorkshopCreateHtml(workshop);
 
-                    // Forzamos que el dataset del botón sea el nuevo ID de la foto
                     const btBook = html.querySelector(".book-bt");
                     if (btBook) {
-                        btBook.dataset.workshopId = workshop.id; // Ahora es el ID de la foto
+                        btBook.dataset.workshopId = workshop.id; 
                     }
 
                     this.container.appendChild(html);

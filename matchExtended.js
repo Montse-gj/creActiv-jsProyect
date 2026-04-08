@@ -1,7 +1,7 @@
 import { workshopExtended } from "./workshopExtended.js";
 
 export default function matchExtended(workshopData) {
-  let contador = 0;
+  let contador = Math.round(Math.random()*(40-1)+1);
   for (let i = 0; i < workshopData.length; i++) {
     workshopData[i].activity = workshopExtended[contador].activity;
     workshopData[i].descShort = workshopExtended[contador].descShort;
@@ -12,8 +12,10 @@ export default function matchExtended(workshopData) {
     workshopData[i].city = workshopExtended[contador].city;
     workshopData[i].month = workshopExtended[contador].month;
     workshopData[i].price = workshopExtended[contador].price;
+    workshopData[i].idExtended = workshopExtended[contador].idExtended;
+    workshopData[i].act = workshopExtended[contador].act;
 
-    contador += 2;
+    contador +=2;
     if (contador >= workshopExtended.length) {
       contador = 0;
     }

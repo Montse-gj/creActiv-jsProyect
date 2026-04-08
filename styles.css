@@ -164,8 +164,7 @@ button .favic button:hover {
   text-align: center;
 }
 
-.product-short-desc h4 {
-  font-size: 1.1rem;
+.product-short-desc h2 {
   min-height: 5.5rem;
 }
 
@@ -470,6 +469,9 @@ button {
   button {
     padding: 1em;
   }
+  .product-short-desc h2 {
+  min-height: 1rem;
+}
 
 }
 

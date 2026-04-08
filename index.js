@@ -27,7 +27,7 @@ async function main() {
 
     const html = domManager.WorkshopCreateHtml(workshop);
 
-    console.log(workshopCollection.getElements());
+    // console.log(workshopCollection.getElements());
 
     if (workshop.isFavorite) {
       html.querySelector(".fav-button").classList.add("fav-on");
@@ -35,9 +35,10 @@ async function main() {
     container.appendChild(html);
   });
 
-  const listeners = new Listeners(workshopCollection, domManager);
+  const listeners = new Listeners(workshopCollection, domManager,container);
   listeners.worksopDescription();
   listeners.favoritesGroup();
+  listeners.searchByCity();
 
 };
 

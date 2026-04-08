@@ -23,10 +23,6 @@ async function initTaller() {
     const mainHtml = domManager.WorkshopCreateDescSection(workshopSelect, galleryImages);
     mainContainer.appendChild(mainHtml);
 
-    const asideContainer = document.querySelector("aside");
-    const asideHtml = domManager.WorkshopCreateDescAside(workshopSelect);
-    asideContainer.appendChild(asideHtml);
-
 }
 
 initTaller();

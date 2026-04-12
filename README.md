@@ -53,6 +53,30 @@ Estilos
 ![CSS](https://img.shields.io/badge/CSS3-%23663399?style=flat&logo=css&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-%23F7E018?style=flat&logo=javascript&logoColor=white)
 
+## Árbol de archivos 
+```text
+creActive/
+│
+├── css/                # Estilos del proyecto
+│   └── styles.css
+│
+├── js/                # Lógica principal en JavaScript
+│   ├── index.js
+│   ├── taller.js
+│   ├── APIManager.js
+│   ├── DOMManager.js
+│   ├── Listeners.js
+│   ├── StorageManager.js
+│   ├── Workshop.js
+│   ├── workshopExtended.js
+│   └── matchExtended.js
+│
+├── img/ui/            # Recursos gráficos e interfaz
+│
+├── index.html         # Página principal
+└── taller.html        # Página de detalle
+``` 
+
 ## Enfoque Técnico
 * Consumo de API pexels mediante fetch
 * Programación orientada a objetos (POO)

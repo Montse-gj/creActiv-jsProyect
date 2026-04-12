@@ -128,7 +128,5 @@ Apliar formulacios de búsqueda
 ## Como ejecutar el proyecto
 Abrir index en el navegador, no reguiere instalación adicional, pero si necesita KEY de API pexels que deben integrarse como se indica en el archivo apiKey-example.js y que debe renombrarse como apiKey.js
 
-
-## Árbol de archivos
 ## Autor
 * **[Montse](https://github.com/Montse-gj)**

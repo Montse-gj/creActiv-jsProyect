@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+	<meta name="created" content="2026-04-12T15:00:29.521695750"/>
+	<meta name="changed" content="2026-04-12T15:08:10.504520772"/>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent }
+		h1 { margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Serif", serif; font-size: 24pt; font-weight: bold }
+		h1.cjk { font-family: "Noto Serif CJK SC"; font-size: 24pt; font-weight: bold }
+		h1.ctl { font-family: "Noto Sans Devanagari"; font-size: 24pt; font-weight: bold }
+		h2 { margin-top: 0.35cm; margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Liberation Serif", serif; font-size: 18pt; font-weight: bold }
+		h2.cjk { font-family: "Noto Serif CJK SC"; font-size: 18pt; font-weight: bold }
+		h2.ctl { font-family: "Noto Sans Devanagari"; font-size: 18pt; font-weight: bold }
+		h3 { margin-top: 0.25cm; margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Liberation Serif", serif; font-size: 14pt; font-weight: bold }
+		h3.cjk { font-family: "Noto Serif CJK SC"; font-size: 14pt; font-weight: bold }
+		h3.ctl { font-family: "Noto Sans Devanagari"; font-size: 14pt; font-weight: bold }
+		code.western { font-family: "Liberation Mono", monospace }
+		code.cjk { font-family: "Noto Sans Mono CJK SC", monospace }
+		code.ctl { font-family: "Liberation Mono", monospace }
+		a:link { color: #000080; text-decoration: underline }
+	</style>
+</head>
+<body lang="es-ES" link="#000080" vlink="#800000" dir="ltr"><h1 class="western">
+MEMORIA  — creActive</h1>
+<h2 class="western">1. Introducción</h2>
+<p>creActive es una aplicación web que permite explorar, visualizar
+y reservar talleres creativos como dibujo, cerámica, música o
+textil.</p>
+<p>El objetivo del proyecto es simular una plataforma de gestión de
+talleres donde el usuario puede descubrir actividades, guardarlas
+como favoritas y realizar una reserva para ver su detalle.</p>
+<hr/>
+
+<h2 class="western">2. Objetivo del proyecto</h2>
+<p>El proyecto se ha desarrollado como ejercicio práctico para
+trabajar:</p>
+<ul>
+	<li><p style="margin-bottom: 0cm">Consumo de API externa 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Manipulación del DOM 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Programación orientada a objetos 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Gestión de eventos 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Persistencia de datos en
+	localStorage 
+	</p></li>
+	<li><p>Arquitectura modular en JavaScript 
+	</p></li>
+</ul>
+<hr/>
+
+<h2 class="western">3. Funcionamiento general</h2>
+<p>La aplicación funciona en tres fases:</p>
+<h3 class="western">1. Obtención de datos</h3>
+<ul>
+	<li><p style="margin-bottom: 0cm">Se realiza una petición a una API
+	de imágenes 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Se usa un término base
+	relacionado con “manualidades” 
+	</p></li>
+	<li><p>Se obtiene información visual de los talleres 
+	</p></li>
+</ul>
+<h3 class="western">2. Generación de talleres</h3>
+<ul>
+	<li><p style="margin-bottom: 0cm">Se crean objetos mediante la clase
+	<code class="western"><font color="#333333"><span style="background: #dddddd">Workshop</span></font></code>
+		</p></li>
+	<li><p style="margin-bottom: 0cm">Se complementan con datos locales
+	almacenados en <code class="western"><font color="#333333"><span style="background: #dddddd">workshopExtended</span></font></code>
+		</p></li>
+	<li><p>Se asignan datos adicionales mediante <code class="western"><font color="#333333"><span style="background: #dddddd">matchExtended</span></font></code>
+		</p></li>
+</ul>
+<h3 class="western">3. Interacción del usuario</h3>
+<p>El usuario puede:</p>
+<ul>
+	<li><p style="margin-bottom: 0cm">Ver talleres en la página
+	principal 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Buscar talleres por ciudad 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Marcar favoritos 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Reservar talleres para ver detalle
+	de cada taller con galería 
+	</p></li>
+</ul>
+<hr/>
+
+<h2 class="western">4. Arquitectura del proyecto</h2>
+<p>El proyecto está organizado en módulos:</p>
+<ul>
+	<li><p style="margin-bottom: 0cm"><code class="western"><font color="#333333"><span style="background: #dddddd">APIManager.js</span></font></code>
+	→ gestión de llamadas a la API 
+	</p></li>
+	<li><p style="margin-bottom: 0cm"><code class="western"><font color="#333333"><span style="background: #dddddd">DOMManager.js</span></font></code>
+	→ renderizado en pantalla 
+	</p></li>
+	<li><p style="margin-bottom: 0cm"><code class="western"><font color="#333333"><span style="background: #dddddd">Listeners.js</span></font></code>
+	→ eventos de usuario 
+	</p></li>
+	<li><p style="margin-bottom: 0cm"><code class="western"><font color="#333333"><span style="background: #dddddd">StorageManager.js</span></font></code>
+	→ gestión de localStorage 
+	</p></li>
+	<li><p style="margin-bottom: 0cm"><code class="western"><font color="#333333"><span style="background: #dddddd">Workshop.js</span></font></code>
+	→ creación y estructura de talleres 
+	</p></li>
+	<li><p style="margin-bottom: 0cm"><code class="western"><font color="#333333"><span style="background: #dddddd">workshopExtended.js</span></font></code>
+	→ datos adicionales 
+	</p></li>
+	<li><p><code class="western">matchExtended.js</code> → asignación
+	aleatoria de datos 
+	</p></li>
+</ul>
+<p>Separación en carpetas:</p>
+<ul>
+	<li><p style="margin-bottom: 0cm"><code class="western"><font color="#333333"><span style="background: #dddddd">css/</span></font></code>
+	estilos 
+	</p></li>
+	<li><p style="margin-bottom: 0cm"><code class="western"><font color="#333333"><span style="background: #dddddd">js/</span></font></code>
+	lógica 
+	</p></li>
+	<li><p><code class="western"><font color="#333333"><span style="background: #dddddd">img/ui/</span></font></code>
+	recursos visuales 
+	</p></li>
+</ul>
+<hr/>
+
+<h2 class="western">5. Flujo de la aplicación</h2>
+<ol>
+	<li><p style="margin-bottom: 0cm">El usuario accede a la página
+	principal (<code class="western"><font color="#333333"><span style="background: #dddddd">index.html</span></font></code>)
+		</p></li>
+	<li><p style="margin-bottom: 0cm">Se cargan talleres generados desde
+	API + datos locales 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Se pintan en el DOM mediante
+	<code class="western"><font color="#333333"><span style="background: #dddddd">DOMManager</span></font></code>
+		</p></li>
+	<li><p style="margin-bottom: 0cm">El usuario interactúa: 
+	</p>
+	<ul>
+		<li><p style="margin-bottom: 0cm">Favoritos → guardados en
+		localStorage 
+		</p></li>
+		<li><p style="margin-bottom: 0cm">Reserva → guarda taller
+		seleccionado y redirige a detalle 
+		</p></li>
+		<li><p style="margin-bottom: 0cm">Búsqueda → filtra y vuelve a
+		generar resultados 
+		</p></li>
+	</ul>
+	<li><p>En <code class="western"><font color="#333333"><span style="background: #dddddd">taller.html</span></font></code>
+	se muestra información ampliada y galería 
+	</p></li>
+</ol>
+<hr/>
+
+<h2 class="western">6. Tecnologías utilizadas</h2>
+<ul>
+	<li><p style="margin-bottom: 0cm">HTML5 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">CSS3 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">JavaScript (ES6) 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">API externa (fetch) 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">localStorage 
+	</p></li>
+	<li><p>Programación orientada a objetos 
+	</p></li>
+</ul>
+<hr/>
+
+<h2 class="western">7. Dificultades encontradas</h2>
+<p>Durante el desarrollo se han encontrado dificultades en:</p>
+<ul>
+	<li><p style="margin-bottom: 0cm">Integración de datos provenientes
+	de la API con datos locales 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Organización del código en
+	múltiples módulos 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Gestión del flujo de información
+	entre archivos 
+	</p></li>
+	<li><p>Coordinación entre eventos y renderizado del DOM 
+	</p></li>
+</ul>
+<hr/>
+
+<h2 class="western">8. Mejoras futuras</h2>
+<ul>
+	<li><p style="margin-bottom: 0cm">Refactorización de la lógica de
+	generación de talleres 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Mejora del sistema de reservas 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Persistencia más robusta de
+	favoritos 
+	</p></li>
+	<li><p style="margin-bottom: 0cm">Optimización de la estructura de
+	clases 
+	</p></li>
+	<li><p>Mejora de validaciones en búsqueda 
+	</p></li>
+</ul>
+<hr/>
+
+<h2 class="western">9. Estructura del proyecto</h2>
+<p>(ver árbol de archivos del <a href="https://github.com/Montse-gj/creActiv-jsProyect/blob/main/README.md">README</a>)</p>
+<hr/>
+
+<h2 class="western">10. Conclusión</h2>
+<p>Este proyecto me ha permitido poner en práctica la integración
+de múltiples fuentes de datos, la organización modular del código
+y la interacción dinámica con el usuario mediante JavaScript.</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+</body>
+</html>
